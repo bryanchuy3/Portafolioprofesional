@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Portafolio de Proyectos Informáticos</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #f9fafb;
+      color: #333;
+    }
+    a {
+      transition: color 0.3s ease;
+    }
+    a:hover {
+      color: #4ade80;
+    }
+    .project-card:hover {
+      box-shadow: 0 10px 15px -3px rgba(74, 222, 128, 0.4),
+                  0 4px 6px -4px rgba(74, 222, 128, 0.3);
+      transform: translateY(-5px);
+    }
+    .project-description {
+      min-height: 3rem;
+    }
+    .modal-bg {
+      background-color: rgba(0,0,0,0.5);
+    }
+    #modal-carousel {
+      width: 100%;
+      display: flex;
+      transition: transform 0.5s ease;
+    }
+    #modal-carousel img {
+  flex-shrink: 0;
+  width: 100%;
+  height: auto;
+  max-height: 16rem; /* o el tamaño máximo que prefieras */
+  object-fit: contain;
+  border-radius: 0.375rem; /* rounded-md */
+  background-color: #f9fafb; /* opcional, para fondo neutro si la imagen no llena todo */
+}
+    .carousel-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: rgba(0,0,0,0.5);
+      color: white;
+      padding: 0.25rem 0.5rem;
+      border-radius: 9999px;
+      cursor: pointer;
+      user-select: none;
+      font-size: 1.5rem;
+      line-height: 1;
+      z-index: 10;
+    }
+    .carousel-btn-left { left: 0.5rem; }
+    .carousel-btn-right { right: 0.5rem; }
+  </style>
+</head>
+<body>
+  <header class="py-10 bg-white shadow-md">
+    <nav class="container mx-auto px-6 flex justify-between items-center">
+      <h1 class="text-3xl font-bold text-green-500 tracking-wide">Mi Portafolio</h1>
+      <ul class="hidden md:flex space-x-8 text-gray-700 font-medium">
+        <li><a href="#about" class="hover:text-green-500">Sobre mí</a></li>
+        <li><a href="#projects" class="hover:text-green-500">Proyectos</a></li>
+        <li><a href="#contact" class="hover:text-green-500">Contacto</a></li>
+      </ul>
+      <button id="menu-btn" class="md:hidden focus:outline-none" aria-label="Abrir menú">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </nav>
+    <div id="mobile-menu" class="hidden md:hidden bg-white shadow-md">
+      <ul class="flex flex-col p-4 space-y-4 text-gray-700 font-medium">
+        <li><a href="#about" class="hover:text-green-500">Sobre mí</a></li>
+        <li><a href="#projects" class="hover:text-green-500">Proyectos</a></li>
+        <li><a href="#contact" class="hover:text-green-500">Contacto</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main class="container mx-auto px-6 mt-12">
+    <!-- Sobre mí -->
+    <section id="about" class="max-w-4xl mx-auto text-center mb-20">
+      <h2 class="text-4xl font-bold mb-4">Hola, soy Ivan</h2>
+      <p class="text-gray-600 text-lg max-w-3xl mx-auto">
+        Me apasiona la programación y la resolución de problemas mediante la tecnología. Como estudiante de informática, tengo un especial interés en el desarrollo de software, bases de datos y nuevas tecnologías. Disfruto aprender constantemente y aplicar mis conocimientos en proyectos que aporten soluciones prácticas. A continuación, te comparto algunos de mis proyectos más destacados.
+      </p>
+    </section>
+
+    <!-- Proyectos -->
+    <section id="projects" class="max-w-6xl mx-auto">
+      <h2 class="text-4xl font-bold mb-10 text-center">Proyectos Destacados</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+
+        <!-- Tarjeta con imágenes locales -->
+        <article 
+          class="project-card bg-white rounded-lg shadow-md p-6 cursor-pointer hover:shadow-lg hover:-translate-y-1 transition-transform duration-300"
+          tabindex="0"
+          role="button"
+          aria-pressed="false"
+          data-title="Sistema de Pedidos para Restaurante"
+          data-images='[
+            "principal.png",
+            "menú.png",
+            "vista 1.png",
+            "content.png"
+          ]'
+          data-description="Este proyecto tiene como propósito simplificar y agilizar el proceso de realizar pedidos en un restaurante."
+          data-details="Permite a los clientes seleccionar su tiempo de comida, plato principal, postre y bebida. Al finalizar el pedido, la orden se envía automáticamente a una pantalla en la cocina donde el personal puede visualizar los detalles del pedido.
+                     El sistema fue desarrollado utilizando el lenguaje de programación Python, aprovechando sus capacidades para la creación de aplicaciones robustas. Para la conexión entre dispositivos, se implementó una solución basada en direcciones IP que permite la comunicación en tiempo real entre la interfaz de pedidos y la pantalla de la cocina."
+        >
+          <img
+            src="principal.png"
+            alt="Vista previa Proyecto 1"
+            class="rounded-md mb-4 object-cover w-full h-48"
+          />
+          <h3 class="text-xl font-semibold mb-2">Sistema de Pedidos para Restaurante</h3>
+          <p class="text-gray-600 project-description mb-4">Este proyecto tiene como propósito simplificar y agilizar el proceso de realizar pedidos en un restaurante.</p>
+        </article>
+
+        <!-- Proyecto 3 -->
+
+        <article 
+          class="project-card bg-white rounded-lg shadow-md p-6 cursor-pointer hover:shadow-lg hover:-translate-y-1 transition-transform duration-300"
+          tabindex="0"
+          role="button"
+          aria-pressed="false"
+          data-title="Sistema de Mensajería Automatizada para WhatsApp"
+          data-images='[
+            "Wsp proyect 2.png",
+            "prueba 1.png",
+            "prueba 2.png"
+            
+          ]'
+          data-description="Este proyecto está diseñado para automatizar el envío de mensajes programados a través de WhatsApp."
+          data-details="Su funcionamiento consiste en permitir al usuario establecer un horario específico para el envío de un mensaje a cualquier contacto. Un minuto antes de la hora programada, el sistema abre automáticamente WhatsApp Web en el navegador y, si el usuario ya tiene la sesión iniciada, procede a enviar el mensaje al destinatario seleccionado.
+
+Para el desarrollo de esta solución se empleó Python como lenguaje de programación principal, aprovechando sus capacidades para la automatización de tareas y su amplio ecosistema de librerías que facilitan la interacción con navegadores web."
+        >
+          <img
+            src="Wsp proyect 2.png"
+            alt="Vista previa Proyecto 2"
+            class="rounded-md mb-4 object-cover w-full h-48"
+          />
+          <h3 class="text-xl font-semibold mb-2">Sistema de Mensajería Automatizada para WhatsApp</h3>
+          <p class="text-gray-600 project-description mb-4">Este proyecto está diseñado para automatizar el envío de mensajes programados a través de WhatsApp.</p>
+        </article>
+
+        <!-- Proyecto 3 -->
+
+        <article 
+          class="project-card bg-white rounded-lg shadow-md p-6 cursor-pointer hover:shadow-lg hover:-translate-y-1 transition-transform duration-300"
+          tabindex="0"
+          role="button"
+          aria-pressed="false"
+          data-title="Juego de Memoria: Los Backyardigans"
+          data-images='[
+            "Memoria.png",      
+            "Memoria 1.png",
+            "Memoria 2.png"
+            
+          ]'
+          data-description="Este divertido juego de memoria está inspirado en la popular serie infantil 'Los Backyardigans', creado específicamente para entretener y educar a los más pequeños."
+          data-details="Mantiene la esencia del clásico juego de memoria donde los niños deben encontrar y emparejar cartas idénticas, pero con el atractivo añadido de los queridos personajes de la serie.
+El proyecto fue desarrollado utilizando HTML como base fundamental, complementado con tecnologías web como CSS para el diseño visual atractivo y JavaScript para implementar la interactividad y la mecánica del juego. Esta combinación tecnológica permite una experiencia de usuario colorida, responsive y adecuada para el público infantil."
+        >
+          <img
+            src="Memoria.png"
+            alt="Vista previa Proyecto 3"
+            class="rounded-md mb-4 object-cover w-full h-48"
+          />
+          <h3 class="text-xl font-semibold mb-2">Juego de Memoria: Los Backyardigans</h3>
+          <p class="text-gray-600 project-description mb-4">Este divertido juego de memoria está inspirado en la popular serie infantil "Los Backyardigans", creado específicamente para entretener y educar a los más pequeños.</p>
+        </article>
+
+
+
+
+
+        <!-- Proyecto 4 -->
+
+        <article 
+
+        
+          class="project-card bg-white rounded-lg shadow-md p-6 cursor-pointer hover:shadow-lg hover:-translate-y-1 transition-transform duration-300"
+          tabindex="0"
+          role="button"
+          aria-pressed="false"
+          data-title="Casa Inteligente con Arduino"
+          
+          data-images='[
+            "Casa.jpg",      
+            "Casa 1.jpg",
+            "Casa 2.jpg"
+            
+          ]'
+          
+          data-description="Este proyecto de domótica integral fue desarrollado con el propósito de simplificar y optimizar el control de todos los elementos de una vivienda."
+          data-details="El sistema permite la automatización completa de diversos componentes del hogar, incluyendo las puertas, televisiones, garaje y sistema de iluminación.
+          
+          La solución fue construida utilizando una placa Arduino como cerebro central del sistema. Para su funcionamiento, se incorporaron diversos componentes electrónicos como LEDs, servomotores y una pantalla OLED que proporciona retroalimentación visual del estado del sistema.
+          
+          "
+>
+          <a 
+  href="https://drive.google.com/file/d/18016V8r63zn5DrUHKywmzf-ASkr_PoJ6/view?usp=sharing" 
+  target="_blank" 
+  class="text-blue-600 font-semibold hover:underline"
+>
+🎥 Ver video
+</a>
+        
+          <img
+            src="Casa.jpg"
+            alt="Vista previa Proyecto 3"
+            class="rounded-md mb-4 object-cover w-full h-48"
+          />
+          <h3 class="text-xl font-semibold mb-2">Casa Inteligente con Arduino</h3>
+          <p class="text-gray-600 project-description mb-4">Este proyecto de domótica integral fue desarrollado con el propósito de simplificar y optimizar el control de todos los elementos de una vivienda.</p>
+
+          
+        </article>
+
+
+
+        
+
+ <article 
+
+        
+          class="project-card bg-white rounded-lg shadow-md p-6 cursor-pointer hover:shadow-lg hover:-translate-y-1 transition-transform duration-300"
+          tabindex="0"
+          role="button"
+          aria-pressed="false"
+          data-title="Sistema de Automatización para Puentes Navegables"
+          
+          data-images='[
+            "Puente.jpg",      
+            "Puente 1.png",
+            "Puente 2.jpg"
+            
+          ]'
+          
+          data-description="Este proyecto consiste en la automatización de un puente mediante el uso de sensores y un sistema de control."
+          data-details="El funcionamiento se inicia cuando un sensor de movimiento detecta la aproximación de un barco; esta señal activa unos motores paso a paso que se encargan de levantar el puente de manera segura para permitir el paso de la embarcación.
+
+Una vez que el barco ha cruzado completamente, los sensores detectan que la vía está despejada y el sistema invierte el proceso: los motores paso a paso se activan nuevamente para descender el puente y restablecer el tráfico habitual.
+
+Todo el sistema de control fue implementado utilizando una placa Arduino, que recibe las señales del sensor de movimiento y gestiona con precisión el movimiento de los motores paso a paso. "
+>
+          <a 
+  href="https://drive.google.com/file/d/1CFWzjuzIMWsBosnVBEScvHCqTKIRwkgL/view?usp=drivesdk" 
+  target="_blank" 
+  class="text-blue-600 font-semibold hover:underline"
+>
+🎥 Ver video
+</a>
+        
+          <img
+            src="Puente.jpg"
+            alt="Vista previa Proyecto 5"
+            class="rounded-md mb-4 object-cover w-full h-48"
+          />
+          <h3 class="text-xl font-semibold mb-2">Sistema de Automatización para Puentes Navegables</h3>
+          <p class="text-gray-600 project-description mb-4">Este proyecto consiste en la automatización de un puente mediante el uso de sensores y un sistema de control.</p>
+
+          
+        </article>
+
+
+
+
+ <!-- Proyecto 6 -->
+
+        <article 
+          class="project-card bg-white rounded-lg shadow-md p-6 cursor-pointer hover:shadow-lg hover:-translate-y-1 transition-transform duration-300"
+          tabindex="0"
+          role="button"
+          aria-pressed="false"
+          data-title="Sistema de Gestión de Inventarios"
+          data-images='[
+            "Inventario.png",      
+            "Inventario 1.png",
+            "Inventario 2.png",
+            "Inventario 3.png",
+            "Inventario 4.png",
+            "Inventario 5.png",
+            "Inventario 6.png"
+            
+          ]'
+          data-description="Este proyecto consiste en un sistema de gestión de inventarios diseñado para supermercados y otros establecimientos comerciales."
+          data-details="Su objetivo es centralizar y simplificar el control del stock de productos.
+
+Para utilizarlo, el usuario debe iniciar sesión a través de un módulo de autenticación seguro. Una vez en la página principal, la interfaz ofrece diversas funcionalidades, como visualizar el inventario completo en tiempo real y consultar un registro de productos eliminados.
+
+La aplicación fue desarrollada utilizando el lenguaje de programación C# (.NET) y gestiona la información en una base de datos SQL Server, garantizando un almacenamiento robusto y eficiente de los datos."
+        >
+          <img
+            src="Inventario.png"
+            alt="Vista previa Proyecto 3"
+            class="rounded-md mb-4 object-cover w-full h-48"
+          />
+          <h3 class="text-xl font-semibold mb-2">Sistema de Gestión de Inventarios</h3>
+          <p class="text-gray-600 project-description mb-4">Este proyecto consiste en un sistema de gestión de inventarios diseñado para supermercados y otros establecimientos comerciales.</p>
+        </article>
+
+
+
+
+
+
+
+
+
+      </div>
+    </section>
+
+    <!-- Contacto -->
+    <section id="contact" class="max-w-4xl mx-auto mt-20 mb-16 text-center">
+      <h2 class="text-4xl font-bold mb-6">Contáctame</h2>
+      <p class="text-gray-600 mb-8">Estoy abierto a colaborar y responder tus consultas. Puedes encontrarme en las siguientes redes o enviarme un correo electrónico.</p>
+      <div class="flex justify-center space-x-10 text-green-600 text-xl font-semibold">
+        <a href="mailto:bryanchuy75@gmail.com" aria-label="Enviar correo electrónico">
+          Correo
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="py-6 bg-white text-center text-gray-600 font-light text-sm">
+    © 2025 Mi Portafolio. Todos los derechos reservados.
+  </footer>
+
+  <!-- Modal -->
+  <div id="modal" class="fixed inset-0 hidden items-center justify-center modal-bg z-50 px-4 py-8">
+    <div class="bg-white rounded-lg shadow-lg max-w-3xl w-full mx-auto p-6 relative overflow-hidden">
+      <button id="modal-close" aria-label="Cerrar detalles del proyecto" class="absolute top-4 right-4 text-gray-600 hover:text-green-500 text-2xl font-bold">&times;</button>
+      <h3 id="modal-title" class="text-2xl font-bold mb-4"></h3>
+
+      <!-- Carrusel -->
+      <div class="relative w-full overflow-hidden rounded-md mb-4">
+        <div id="modal-carousel" class="flex transition-transform duration-500"></div>
+        <button type="button" onclick="moveSlide('modal-carousel', -1)" class="carousel-btn carousel-btn-left" aria-label="Imagen anterior">‹</button>
+        <button type="button" onclick="moveSlide('modal-carousel', 1)" class="carousel-btn carousel-btn-right" aria-label="Imagen siguiente">›</button>
+      </div>
+
+      <p id="modal-description" class="text-gray-700 mb-4"></p>
+      <p id="modal-details" class="text-gray-600"></p>
+    </div>
+  </div>
+
+  <script>
+    const menuBtn = document.getElementById('menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    menuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+
+    const indices = {};
+    function moveSlide(id, step) {
+      const carousel = document.getElementById(id);
+      const slides = carousel.children.length;
+      if (!(id in indices)) indices[id] = 0;
+      indices[id] = (indices[id] + step + slides) % slides;
+      carousel.style.transform = `translateX(-${indices[id] * 100}%)`;
+    }
+
+    const modal = document.getElementById('modal');
+    const modalTitle = document.getElementById('modal-title');
+    const modalDescription = document.getElementById('modal-description');
+    const modalDetails = document.getElementById('modal-details');
+    const modalClose = document.getElementById('modal-close');
+
+    function openModal(project) {
+      modalTitle.textContent = project.dataset.title || '';
+      modalDescription.textContent = project.dataset.description || '';
+      modalDetails.textContent = project.dataset.details || '';
+
+      const images = JSON.parse(project.dataset.images || "[]");
+      const carousel = document.getElementById("modal-carousel");
+      carousel.innerHTML = "";
+      images.forEach(src => {
+        const img = document.createElement("img");
+        img.src = src;
+        img.alt = project.dataset.title + " imagen";
+        img.className = "w-full h-64 object-cover flex-shrink-0";
+        carousel.appendChild(img);
+      });
+
+      indices["modal-carousel"] = 0;
+      carousel.style.transform = "translateX(0)";
+      modal.classList.remove("hidden");
+      document.body.style.overflow = "hidden";
+    }
+
+    function closeModal() {
+      modal.classList.add("hidden");
+      document.body.style.overflow = "";
+    }
+
+    const projectCards = document.querySelectorAll('.project-card');
+    projectCards.forEach(card => {
+      card.addEventListener('click', () => openModal(card));
+      card.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          openModal(card);
+        }
+      });
+    });
+
+    modalClose.addEventListener('click', closeModal);
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) closeModal();
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && !modal.classList.contains('hidden')) closeModal();
+    });
+  </script>
+</body>
+</html>
